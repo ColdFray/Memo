@@ -8,6 +8,7 @@ public class Memo extends DataSupport {
     private String textDate;
     private String textTime;
     private String alarm;
+    private String textTitle;
     private String mainText;
     private int id;
 
@@ -26,6 +27,9 @@ public class Memo extends DataSupport {
     }
     public String getAlarm(){
         return alarm;
+    }
+    public String getTextTitle(){
+        return textTitle;
     }
     public String getMainText(){
         return mainText;
@@ -47,6 +51,9 @@ public class Memo extends DataSupport {
     }
     public void setAlarm(String alarm){
         this.alarm=alarm;
+    }
+    public void setTextTitle(String textTitle){
+        this.textTitle=textTitle;
     }
     public void setMainText(String mainText){
         this.mainText=mainText;

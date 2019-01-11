@@ -82,6 +82,7 @@ public class OneShotAlarm extends BroadcastReceiver {
         it.putExtra("textTime",record.getTextTime());
         record.setAlarm("");
         it.putExtra("alarm","");
+        it.putExtra("textTitle",record.getTextTitle());
         it.putExtra("mainText",record.getMainText());
     }
 

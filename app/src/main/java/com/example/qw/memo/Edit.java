@@ -30,6 +30,7 @@ public class Edit extends Activity
     TextView date_text;
     TextView time_text;
     ImageButton alarm_button;
+    EditText edtTitle;
     EditText edt;
     TextView av;
     RadioGroup tagRadio;
@@ -40,6 +41,7 @@ public class Edit extends Activity
     int tag;
     String textDate;
     String textTime;
+    String textTitle;
     String mainText;
 
     //alarm clock
@@ -71,12 +73,14 @@ public class Edit extends Activity
         time_text=(TextView) findViewById(R.id.timeText);
         alarm_button=(ImageButton) findViewById((R.id.alarmButton));
         //alarm_button.setBackgroundResource(R.mipmap.ic_launcher);
+        edtTitle=findViewById(R.id.edtTitle);
         edt=(EditText) findViewById(R.id.editText);
         //edt.setBackgroundColor(color[tag]);
         av=(TextView) findViewById(R.id.alarmView);
 
         date_text.setText(textDate);
         time_text.setText(textTime);
+        edtTitle.setText(textTitle);
         edt.setText(mainText);
 
         av.setOnLongClickListener(this);
@@ -227,6 +231,7 @@ public class Edit extends Activity
         it.putExtra("tag",tag);
         //no need for date and time
         it.putExtra("alarm",alarm);
+        it.putExtra("textTitle",edtTitle.getText().toString());
         it.putExtra("mainText",edt.getText().toString());
 
         setResult(RESULT_OK,it);
@@ -241,6 +246,7 @@ public class Edit extends Activity
         textTime=it.getStringExtra("textTime");
 
         alarm=it.getStringExtra("alarm");
+        textTitle=it.getStringExtra("textTitle");
         mainText=it.getStringExtra("mainText");
     }
 

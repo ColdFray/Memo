@@ -80,6 +80,12 @@
             android:id="@+id/alarmView" />
     </LinearLayout>
 
+    <LinearLayout android:orientation="horizontal" android:layout_height="wrap_content" android:layout_width="match_parent" android:layout_margin="10dp">
+        <TextView android:layout_height="wrap_content" android:layout_width="wrap_content" android:textColor="@android:color/black" android:text="标题："/>
+        <EditText android:layout_height="wrap_content" android:layout_width="match_parent" android:id="@+id/edtTitle"/>
+    </LinearLayout>
+
+
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

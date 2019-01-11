@@ -91,8 +91,9 @@ public class MainActivity extends AppCompatActivity
             String textDate = record.getTextDate();
             String textTime = record.getTextTime();
             boolean alarm = record.getAlarm().length() > 1 ? true : false;
+            String textTitle = record.getTextTitle();
             String mainText = record.getMainText();
-            OneMemo temp = new OneMemo(tag, textDate, textTime, alarm, mainText);
+            OneMemo temp = new OneMemo(tag, textDate, textTime, alarm, textTitle, mainText);
             memolist.add(temp);
         }
 
@@ -107,6 +108,7 @@ public class MainActivity extends AppCompatActivity
         record.setTextDate("1212");
         record.setTextTime("23:00");
         record.setAlarm("123");
+        record.setTextTitle("标题");
         record.setMainText("hahaha");
         record.save();
         */
@@ -156,7 +158,6 @@ public class MainActivity extends AppCompatActivity
         }
     }
 
-    //update the database and memolist acccording to the "num" memo that Edit.class return
     private void updateLitePalAndList(int requestCode, Intent it) {
 
         int num=requestCode;
@@ -167,14 +168,15 @@ public class MainActivity extends AppCompatActivity
         String current_time=getCurrentTime(c);
 
         String alarm=it.getStringExtra("alarm");
+        String textTitle=it.getStringExtra("textTitle");
         String mainText=it.getStringExtra("mainText");
 
         boolean gotAlarm = alarm.length() > 1 ? true : false;
-        OneMemo new_memo = new OneMemo(tag, current_date, current_time, gotAlarm, mainText);
+        OneMemo new_memo = new OneMemo(tag, current_date, current_time, gotAlarm, textTitle, mainText);
 
         if((requestCode+1)>memolist.size()) {
             // add a new memo record into database
-            addRecordToLitePal(num, tag, current_date, current_time, alarm, mainText);
+            addRecordToLitePal(num, tag, current_date, current_time, alarm, textTitle, mainText);
 
             // add a new OneMemo object into memolist and show
             memolist.add(new_memo);
@@ -192,6 +194,7 @@ public class MainActivity extends AppCompatActivity
             temp.put("textDate", current_date);
             temp.put("textTime", current_time);
             temp.put("alarm", alarm);
+            temp.put("textTitle",textTitle);
             temp.put("mainText", mainText);
             String where = String.valueOf(num);
             DataSupport.updateAll(Memo.class, temp, "num = ?", where);
@@ -213,8 +216,8 @@ public class MainActivity extends AppCompatActivity
         String textTime=getCurrentTime(c);
 
         //insert two records into the database
-        addRecordToLitePal(0,0,textDate,textTime,"","click to edit");
-        addRecordToLitePal(1,1,textDate,textTime,"","long click to delete");
+        addRecordToLitePal(0,0,textDate,textTime,"","click to edit","mainText1");
+        addRecordToLitePal(1,1,textDate,textTime,"","long click to delete","mainText2");
     }
 
     //get current date in XX/XX format
@@ -236,14 +239,14 @@ public class MainActivity extends AppCompatActivity
         return current_time;
     }
 
-    private void addRecordToLitePal(int num, int tag, String textDate, String textTime, String alarm, String mainText) {
+    private void addRecordToLitePal(int num, int tag, String textDate, String textTime, String alarm,String textTitle, String mainText) {
         Memo record=new Memo();
         record.setNum(num);
         record.setTag(tag);
         record.setTextDate(textDate);
         record.setTextTime(textTime);
         record.setAlarm(alarm);
-
+        record.setTextTitle(textTitle);
         record.setMainText(mainText);
         record.save();
     }
@@ -254,6 +257,7 @@ public class MainActivity extends AppCompatActivity
         it.putExtra("textDate",record.getTextDate());
         it.putExtra("textTime",record.getTextTime());
         it.putExtra("alarm",record.getAlarm());
+        it.putExtra("textTitle",record.getTextTitle());
         it.putExtra("mainText",record.getMainText());
     }
 
@@ -272,6 +276,7 @@ public class MainActivity extends AppCompatActivity
         it.putExtra("textDate",current_date);
         it.putExtra("textTime",current_time);
         it.putExtra("alarm","");
+        it.putExtra("textTitle","");
         it.putExtra("mainText","");
 
         startActivityForResult(it,position);

@@ -10,6 +10,8 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import org.w3c.dom.Text;
+
 import java.util.List;
 
 public class MemoAdapter extends ArrayAdapter<OneMemo>{
@@ -31,6 +33,7 @@ public class MemoAdapter extends ArrayAdapter<OneMemo>{
         TextView textDate=(TextView)view.findViewById(R.id.textDate);
         TextView textTime=(TextView)view.findViewById(R.id.textTime);
         ImageView alarm=(ImageView) view.findViewById(R.id.alarm);
+        TextView textTitle = view.findViewById(R.id.textTitle);
         TextView mainText=(TextView)view.findViewById(R.id.mainText);
 
         if(memo.getTag()<color.length)
@@ -43,6 +46,7 @@ public class MemoAdapter extends ArrayAdapter<OneMemo>{
         else {
             alarm.setVisibility(View.GONE);
         }
+        textTitle.setText(memo.getTextTitle());
         mainText.setText(memo.getMainText());
 
         return view;
