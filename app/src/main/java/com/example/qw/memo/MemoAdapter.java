@@ -17,7 +17,7 @@ import java.util.List;
 public class MemoAdapter extends ArrayAdapter<OneMemo>{
 
     private int resourceId;
-    int[] color={Color.parseColor("#F5EFA0"), Color.parseColor("#8296D5"),Color.parseColor("#95C77E"),Color.parseColor("#F49393"),Color.parseColor("#FFFFFF")};
+    int[] color={Color.parseColor("#FFFFFF"), Color.parseColor("#8296D5"),Color.parseColor("#FFFF00"),Color.parseColor("#FF8C00"),Color.parseColor("#FA8072")};
 
     public MemoAdapter(Context context, int resource, List<OneMemo> objects) {
         super(context, resource, objects);

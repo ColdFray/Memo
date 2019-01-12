@@ -67,7 +67,7 @@ public class Edit extends Activity
         myLayout = (LinearLayout) findViewById(R.id.whole);
         //myLayout.setBackgroundColor(color[tag]);
         //myLayout.setBackgroundResource(R.drawable.edit_bg_yellow);
-        myLayout.setBackgroundResource(R.drawable.edit_bg_yellow);
+        myLayout.setBackgroundResource(R.drawable.bg_white);
 
         date_text=(TextView) findViewById(R.id.dateText);
         time_text=(TextView) findViewById(R.id.timeText);
@@ -97,19 +97,19 @@ public class Edit extends Activity
     private void setRadioButtonCheckedAccordingToTag(int tag) {
         switch (tag) {
             case 0:
-                rdButton=(RadioButton) findViewById(R.id.yellow);
+                rdButton=(RadioButton) findViewById(R.id.white);
                 break;
             case 1:
                 rdButton=(RadioButton) findViewById(R.id.blue);
                 break;
             case 2:
-                rdButton=(RadioButton) findViewById(R.id.green);
+                rdButton=(RadioButton) findViewById(R.id.yellow);
                 break;
             case 3:
-                rdButton=(RadioButton) findViewById(R.id.red);
+                rdButton=(RadioButton) findViewById(R.id.orange);
                 break;
             case 4:
-                rdButton=(RadioButton) findViewById(R.id.white);
+                rdButton=(RadioButton) findViewById(R.id.red);
                 break;
             default:
                 break;
@@ -119,30 +119,30 @@ public class Edit extends Activity
     @Override
     public void onCheckedChanged(RadioGroup group, int checkedId) {
         switch (tagRadio.getCheckedRadioButtonId()) {
-            case R.id.yellow:
+            case R.id.white:
                 tag=0;
                 //edt.setBackgroundColor(color[tag]);
-                myLayout.setBackgroundResource(R.drawable.edit_bg_yellow);
+                myLayout.setBackgroundResource(R.drawable.bg_white);
                 break;
             case R.id.blue:
                 tag=1;
                 //edt.setBackgroundColor(color[tag]);
-                myLayout.setBackgroundResource(R.drawable.edit_bg_blue);
+                myLayout.setBackgroundResource(R.drawable.bg_blue);
                 break;
-            case R.id.green:
+            case R.id.yellow:
                 tag=2;
                 //edt.setBackgroundColor(color[tag]);
-                myLayout.setBackgroundResource(R.drawable.edit_bg_green);
+                myLayout.setBackgroundResource(R.drawable.bg_yellow);
                 break;
-            case R.id.red:
+            case R.id.orange:
                 tag=3;
                 //edt.setBackgroundColor(color[tag]);
-                myLayout.setBackgroundResource(R.drawable.edit_bg_red);
+                myLayout.setBackgroundResource(R.drawable.bg_orange);
                 break;
-            case R.id.white:
+            case R.id.red:
                 tag=4;
                 //edt.setBackgroundColor(color[tag]);
-                myLayout.setBackgroundResource(R.drawable.edit_bg_white);
+                myLayout.setBackgroundResource(R.drawable.bg_red);
                 break;
             default:
                 break;
@@ -206,7 +206,7 @@ public class Edit extends Activity
 
 
 
-    //press the save button
+    //press the save button 控件描述直接绑定此方法
     public void onSave(View v) {
         returnResult();
         finish();

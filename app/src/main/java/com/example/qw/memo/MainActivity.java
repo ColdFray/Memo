@@ -93,7 +93,7 @@ public class MainActivity extends AppCompatActivity
             boolean alarm = record.getAlarm().length() > 1 ? true : false;
             String textTitle = record.getTextTitle();
             String mainText = record.getMainText();
-            OneMemo temp = new OneMemo(tag, textDate, textTime, alarm, textTitle, mainText);
+            OneMemo temp = new OneMemo(tag, textDate, textTime, alarm,textTitle, mainText);
             memolist.add(temp);
         }
 
@@ -108,7 +108,6 @@ public class MainActivity extends AppCompatActivity
         record.setTextDate("1212");
         record.setTextTime("23:00");
         record.setAlarm("123");
-        record.setTextTitle("标题");
         record.setMainText("hahaha");
         record.save();
         */
@@ -158,6 +157,7 @@ public class MainActivity extends AppCompatActivity
         }
     }
 
+    //update the database and memolist acccording to the "num" memo that Edit.class return
     private void updateLitePalAndList(int requestCode, Intent it) {
 
         int num=requestCode;
@@ -172,11 +172,11 @@ public class MainActivity extends AppCompatActivity
         String mainText=it.getStringExtra("mainText");
 
         boolean gotAlarm = alarm.length() > 1 ? true : false;
-        OneMemo new_memo = new OneMemo(tag, current_date, current_time, gotAlarm, textTitle, mainText);
+        OneMemo new_memo = new OneMemo(tag, current_date, current_time, gotAlarm,textTitle, mainText);
 
         if((requestCode+1)>memolist.size()) {
             // add a new memo record into database
-            addRecordToLitePal(num, tag, current_date, current_time, alarm, textTitle, mainText);
+            addRecordToLitePal(num, tag, current_date, current_time, alarm,textTitle, mainText);
 
             // add a new OneMemo object into memolist and show
             memolist.add(new_memo);
@@ -216,8 +216,8 @@ public class MainActivity extends AppCompatActivity
         String textTime=getCurrentTime(c);
 
         //insert two records into the database
-        addRecordToLitePal(0,0,textDate,textTime,"","click to edit","mainText1");
-        addRecordToLitePal(1,1,textDate,textTime,"","long click to delete","mainText2");
+        addRecordToLitePal(0,0,textDate,textTime,"","click to edit","");
+        addRecordToLitePal(1,1,textDate,textTime,"","long click to delete","");
     }
 
     //get current date in XX/XX format
@@ -362,4 +362,5 @@ public class MainActivity extends AppCompatActivity
 
     //********************************************************************************************************************************
 }
+
 

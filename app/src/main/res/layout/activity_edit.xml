@@ -11,7 +11,7 @@
     android:orientation="vertical"
     android:id="@+id/whole"
     android:padding="5dp"
-    android:background="@drawable/edit_bg_yellow">
+    android:background="@drawable/bg_white">
 
     <Space
         android:layout_width="match_parent"
@@ -118,68 +118,68 @@
                 android:layout_weight="2" />
 
             <RadioButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/yellow"
-                android:checked="false"
-                android:button="@null"
-                android:background="@drawable/radio"
-                android:layout_weight="2" />
-
-            <Space
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="2" />
-
-            <RadioButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/blue"
-                android:checked="false"
-                android:button="@null"
-                android:background="@drawable/radio2"
-                android:layout_weight="2" />
-
-            <Space
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="2" />
-
-            <RadioButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/green"
-                android:checked="false"
-                android:button="@null"
-                android:background="@drawable/radio3"
-                android:layout_weight="2" />
-
-            <Space
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="2" />
-
-            <RadioButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/red"
-                android:checked="false"
-                android:button="@null"
-                android:background="@drawable/radio4"
-                android:layout_weight="2" />
-
-            <Space
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="2" />
-
-            <RadioButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
                 android:id="@+id/white"
                 android:checked="false"
                 android:button="@null"
-                android:background="@drawable/radio5"
+                android:background="@drawable/white_00"
+                android:layout_weight="2" />
+
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="2" />
+
+            <RadioButton
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:id="@+id/blue"
+                android:checked="false"
+                android:button="@null"
+                android:background="@drawable/blue_00"
+                android:layout_weight="2" />
+
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="2" />
+
+            <RadioButton
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:id="@+id/yellow"
+                android:checked="false"
+                android:button="@null"
+                android:background="@drawable/yellow_00"
+                android:layout_weight="2" />
+
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="2" />
+
+            <RadioButton
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:id="@+id/orange"
+                android:checked="false"
+                android:button="@null"
+                android:background="@drawable/orang_00"
+                android:layout_weight="2" />
+
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="2" />
+
+            <RadioButton
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:id="@+id/red"
+                android:checked="false"
+                android:button="@null"
+                android:background="@drawable/red_00"
                 android:layout_weight="2" />
 
             <Space
