@@ -23,11 +23,10 @@ public class OneShotAlarm extends BroadcastReceiver {
 
     @Override
     public void onReceive(Context context, Intent intent) {
-        //showMemo(context);
 
         alarmId=intent.getIntExtra("alarmId",0);
 
-        Toast.makeText(context,"Time UP!",Toast.LENGTH_LONG).show();
+        Toast.makeText(context,"提醒事项!!!",Toast.LENGTH_LONG).show();
 
         Vibrator vb =(Vibrator) context.getSystemService(Context.VIBRATOR_SERVICE);
         vb.vibrate(300);
@@ -35,24 +34,19 @@ public class OneShotAlarm extends BroadcastReceiver {
         showNotice(context);
     }
 
-    //show notice and it can be clicked
+    //展示提醒 并且还可以点击
     private void showNotice(Context context) {
         int num=alarmId-BIG_NUM_FOR_ALARM;
         Log.d("MainActivity","alarmNoticeId "+num);
 
-        //********************BUG SOLVED***********************
-        //got a bug here:
-        //after clicking the notice, we cannot get to the correct memo
-        //while we always go to the second memo initialized
-        //****************************************************
         Intent intent=new Intent(context,Edit.class);
 
         Memo record= getMemoWithId(num);
-        deleteTheAlarm(num);//or num
+        deleteTheAlarm(num);
 
         transportInformationToEdit(intent,record);
 
-        PendingIntent pi=PendingIntent.getActivity(context,0,intent,PendingIntent.FLAG_UPDATE_CURRENT);//PendingIntent.FLAG_UPDATE_CURRENT is very important which caused a bug and troubles me for a long time
+        PendingIntent pi=PendingIntent.getActivity(context,0,intent,PendingIntent.FLAG_UPDATE_CURRENT);
 
         NotificationManager manager=(NotificationManager) context.getSystemService(context.NOTIFICATION_SERVICE);
         Notification notification=new NotificationCompat.Builder(context)
@@ -63,7 +57,6 @@ public class OneShotAlarm extends BroadcastReceiver {
                 .setLargeIcon(BitmapFactory.decodeResource(context.getResources(),R.drawable.icon))
                 .setContentIntent(pi)
                 .setAutoCancel(true)
-                //.setStyle(new NotificationCompat.BigTextStyle().bigText(record.getMainText()))
                 .setLights(Color.GREEN,1000,1000)
                 .build();
         manager.notify(num,notification);
@@ -82,6 +75,7 @@ public class OneShotAlarm extends BroadcastReceiver {
         it.putExtra("textTime",record.getTextTime());
         record.setAlarm("");
         it.putExtra("alarm","");
+        it.putExtra("textTitle",record.getTextTitle());
         it.putExtra("mainText",record.getMainText());
     }
 

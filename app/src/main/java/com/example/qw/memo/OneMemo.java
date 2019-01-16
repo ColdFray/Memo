@@ -6,13 +6,15 @@ public class OneMemo {
     private String textDate;
     private String textTime;
     private boolean alarm;
+    private String textTitle;
     private String mainText;
 
-    public OneMemo(int tag, String textDate, String textTime,boolean alarm, String mainText) {
+    public OneMemo(int tag, String textDate, String textTime,boolean alarm,String textTitle,String mainText) {
         this.tag=tag;
         this.textDate=textDate;
         this.textTime=textTime;
         this.alarm=alarm;
+        this.textTitle=textTitle;
         this.mainText=mainText;
     }
 
@@ -27,6 +29,9 @@ public class OneMemo {
         return textTime;
     }
     public boolean getAlarm(){ return alarm; }
+    public String getTextTitle() {
+        return textTitle;
+    }
     public String getMainText(){
         return mainText;
     }
@@ -43,6 +48,9 @@ public class OneMemo {
     }
     public void setAlarm(boolean alarm){
         this.alarm=alarm;
+    }
+    public void setTextTitle(String textTitle) {
+        this.textTitle = textTitle;
     }
     public void setMainText(String mainText){
         this.mainText=mainText;
