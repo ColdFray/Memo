@@ -44,8 +44,8 @@ public class Edit extends Activity
     String textTitle;
     String mainText;
 
-    //alarm clock
-    int num=0; //for requestcode
+    //闹钟时间
+    int num=0; //前一页的requestCode
     int BIG_NUM_FOR_ALARM=100;
     String alarm="";
     int alarm_hour=0;
@@ -65,17 +65,17 @@ public class Edit extends Activity
         getInformationFromMain(it);
 
         myLayout = (LinearLayout) findViewById(R.id.whole);
-        //myLayout.setBackgroundColor(color[tag]);
-        //myLayout.setBackgroundResource(R.drawable.edit_bg_yellow);
+
+
         myLayout.setBackgroundResource(R.drawable.bg_white);
 
         date_text=(TextView) findViewById(R.id.dateText);
         time_text=(TextView) findViewById(R.id.timeText);
         alarm_button=(ImageButton) findViewById((R.id.alarmButton));
-        //alarm_button.setBackgroundResource(R.mipmap.ic_launcher);
+
         edtTitle=findViewById(R.id.edtTitle);
         edt=(EditText) findViewById(R.id.editText);
-        //edt.setBackgroundColor(color[tag]);
+
         av=(TextView) findViewById(R.id.alarmView);
 
         date_text.setText(textDate);
@@ -149,11 +149,11 @@ public class Edit extends Activity
         }
     }
 
-    //*********************************set alarm clock***********************************
+    //*********************************设置闹钟***********************************
     public void setAlarm(View v) {
         if(alarm.length()<=1) {
-            //if no alarm clock has been set up before
-            //show the current time
+            //如果没有设置过闹钟
+            //显示当前时间
             Calendar c=Calendar.getInstance();
             alarm_hour=c.get(Calendar.HOUR_OF_DAY);
             alarm_minute=c.get(Calendar.MINUTE);
@@ -202,7 +202,7 @@ public class Edit extends Activity
         Toast.makeText(this,"Alarm will be on at "+alarm+" !",Toast.LENGTH_LONG).show();
     }
 
-    //******************************************************************************************
+
 
 
 
@@ -215,7 +215,7 @@ public class Edit extends Activity
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
 
-        //if the Back Button is pressed
+        //返回键也能保存
         if (keyCode == KeyEvent.KEYCODE_BACK) {
             returnResult();
             finish();
@@ -224,7 +224,7 @@ public class Edit extends Activity
         return super.onKeyDown(keyCode, event);
     }
 
-    // after pressing back or save, return the current state
+    // 返回键和保存键点击事件，返回
     private void returnResult() {
         Intent it=new Intent();
 
@@ -237,7 +237,7 @@ public class Edit extends Activity
         setResult(RESULT_OK,it);
     }
 
-    //read Intent information from main_activity
+    //从mainactivity获取参数
     private void getInformationFromMain(Intent it) {
         num=it.getIntExtra("num",0);
 
@@ -253,9 +253,9 @@ public class Edit extends Activity
     @Override
     public boolean onLongClick(View v) {
         if(v.getId()==R.id.alarmView||v.getId()==R.id.alarmButton) {
-            //delete the alarm information
+            //删除闹钟
             alarm="";
-            //hide textView
+            //不现实闹钟图标
             av.setVisibility(View.GONE);
         }
         return true;

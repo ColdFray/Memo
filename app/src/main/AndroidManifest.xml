@@ -23,6 +23,9 @@
             </intent-filter>
         </activity>
         <activity android:name=".Edit"></activity>
+        <activity android:name=".SearchActivity"></activity>
+        <activity android:name=".SearchEdit"></activity>
+        <activity android:name=".TestSearch"></activity>
     </application>
 
 </manifest>

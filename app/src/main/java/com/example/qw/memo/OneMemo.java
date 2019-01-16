@@ -18,8 +18,6 @@ public class OneMemo {
         this.mainText=mainText;
     }
 
-
-
     //getter
     public int getTag(){
         return tag;
